@@ -9,7 +9,7 @@
 
   <body>
     <h1>Teams</h1>
-    <div>create</div>
+    <div>index</div>
 
 
   </body>
