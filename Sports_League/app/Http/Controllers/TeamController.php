@@ -26,4 +26,8 @@ class TeamController extends Controller
         return redirect(route('teams.index'));
 
     }
+
+    public function edit(Team $team){
+        dd($team);
+    }
 }

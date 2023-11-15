@@ -16,6 +16,7 @@
             <th scope="col" class="px-6 py-3">Team Name</th>
             <th scope="col" class="px-6 py-3">Coach</th>
             <th scope="col" class="px-6 py-3">Overall points</th>
+            <th scope="col" class="px-6 py-3">Edit</th>
           </tr>
         </thead>
         @foreach($teams as $team)
@@ -24,6 +25,10 @@
             <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$team->name}}</td>
             <td class="px-6 py-4">{{$team->coach}}</td>
             <td class="px-6 py-4">{{$team->points}}</td>
+            <td class="px-6 py-4">
+              <a href="{{route('teams.edit',['team' => $team])}}">Edit</a>
+            </td>
+            
           </tr>
         </tbody>
         @endforeach
