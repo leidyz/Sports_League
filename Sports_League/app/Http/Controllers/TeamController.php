@@ -8,7 +8,8 @@ use App\Models\Team;
 class TeamController extends Controller
 {
     public function index(){
-        return view('teams.index');
+        $teams = Team::all();
+        return view('teams.index',['teams' => $teams]);
     }
 
     public function create(){
