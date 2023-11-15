@@ -17,6 +17,9 @@
         @endif
       </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div>
+        <a href="{{route('teams.create')}}">Create a new Team</a>
+        </div>
       <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -24,6 +27,7 @@
             <th scope="col" class="px-6 py-3">Coach</th>
             <th scope="col" class="px-6 py-3">Overall points</th>
             <th scope="col" class="px-6 py-3">Edit</th>
+            <th scope="col" class="px-6 py-3">Delete</th>
           </tr>
         </thead>
         @foreach($teams as $team)
@@ -34,6 +38,13 @@
             <td class="px-6 py-4">{{$team->points}}</td>
             <td class="px-6 py-4">
               <a href="{{route('teams.edit',['team' => $team])}}">Edit</a>
+            </td>
+            <td class="px-6 py-4">
+              <form method="post" action="{{route('teams.delete',['team' => $team])}}">
+                @csrf
+                @method("delete")
+                <input type="submit" value="Delete"/>
+              </form>
             </td>
             
           </tr>

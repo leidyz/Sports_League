@@ -41,4 +41,9 @@ class TeamController extends Controller
 
         return redirect(route('teams.index'))->with('success','Team Updated Succesfully');
     }
+
+    public function delete(Team $team){
+        $team->delete();
+        return redirect(route('teams.index'))->with('success','Team Deleted Succesfully');
+    }
 }
