@@ -28,6 +28,17 @@ class TeamController extends Controller
     }
 
     public function edit(Team $team){
-        dd($team);
+        return view('teams.edit',['team' => $team]);
+    }
+    public function update(Request $request, Team $team){
+        $data = $request->validate([
+            'name' => 'required',
+            'coach' => 'required',
+            'points' =>'required|numeric'
+        ]);
+        
+        $team->update($data);
+
+        return redirect(route('teams.index'))->with('success','Team Updated Succesfully');
     }
 }
