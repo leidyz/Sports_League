@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css"  rel="stylesheet" />
-    <title>Teams</title>
+    <title>Games </title>
   </head>
 
   <body>
@@ -19,24 +19,30 @@
       </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <div>
-        <a href="{{route('teams.create')}}">Create a new Team</a>
+        <a href="{{route('teams.create')}}">Create a new Game</a>
         </div>
       <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" class="px-6 py-3">Team Name</th>
-            <th scope="col" class="px-6 py-3">Coach</th>
-            <th scope="col" class="px-6 py-3">Overall points</th>
+            <th scope="col" class="px-6 py-3">Title</th>
+            <th scope="col" class="px-6 py-3">Date</th>
+            <th scope="col" class="px-6 py-3">Local Team ID</th>
+            <th scope="col" class="px-6 py-3">Guest Team ID</th>
+            <th scope="col" class="px-6 py-3">Local Score</th>
+            <th scope="col" class="px-6 py-3">Guest Score</th>
             <th scope="col" class="px-6 py-3"></th>
             <th scope="col" class="px-6 py-3"></th>
           </tr>
         </thead>
-        @foreach($teams as $team)
+        @foreach($games as $game)
         <tbody>
           <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$team->name}}</td>
-            <td class="px-6 py-4">{{$team->coach}}</td>
-            <td class="px-6 py-4">{{$team->points}}</td>
+            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$game->title}}</td>
+            <td class="px-6 py-4">{{$game->date}}</td>
+            <td class="px-6 py-4">{{$game->local_team}}</td>
+            <td class="px-6 py-4">{{$game->guest_team}}</td>
+            <td class="px-6 py-4">{{$game->local_score}}</td>
+            <td class="px-6 py-4">{{$game->guest_score}}</td>
             <td class="px-6 py-4">
               <a href="{{route('teams.edit',['team' => $team])}}" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</a>
             </td>
@@ -66,9 +72,9 @@
                 <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                 </svg>
-                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this team?</h3>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this game?</h3>
                 <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
-                  <form method="post" action="{{route('teams.delete',['team' => $team])}}">
+                  <form method="post" action="{{route('games.delete',['game' => $game])}}">
                     @csrf
                     @method("delete")
                     <input type="submit" value="Delete"/>
