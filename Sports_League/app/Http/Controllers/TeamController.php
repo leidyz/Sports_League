@@ -26,4 +26,24 @@ class TeamController extends Controller
         return redirect(route('teams.index'));
 
     }
+
+    public function edit(Team $team){
+        return view('teams.edit',['team' => $team]);
+    }
+    public function update(Request $request, Team $team){
+        $data = $request->validate([
+            'name' => 'required',
+            'coach' => 'required',
+            'points' =>'required|numeric'
+        ]);
+        
+        $team->update($data);
+
+        return redirect(route('teams.index'))->with('success','Team Updated Succesfully');
+    }
+
+    public function delete(Team $team){
+        $team->delete();
+        return redirect(route('teams.index'))->with('success','Team Deleted Succesfully');
+    }
 }
