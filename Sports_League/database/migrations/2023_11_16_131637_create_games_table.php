@@ -15,19 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->dateTime('date');
-            $table->unsignedBigInteger('local_team')->nullable;
-            $table->unsignedBigInteger('guest_team')->nullable;
+            $table->unsignedBigInteger('local_team');
+            $table->unsignedBigInteger('guest_team');
             $table->integer('local_score');
             $table->integer('guest_score');
             $table->timestamps();
 
-            $table->foreign('local_team')
-                ->references('id')->on('teams')
-                ->onDelete('set null');               
+            $table->foreign('local_team')->references('id')->on('teams')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->foreign('guest_team')->references('id')->on('teams')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
-            $table->foreign('guest_team')
-                ->references('id')->on('teams')
-                ->onDelete('set null');
         });
     }
 
