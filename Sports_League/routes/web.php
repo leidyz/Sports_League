@@ -17,7 +17,7 @@ use App\Http\Controllers\GameController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing/home');
 });
 
 Route::get('/teams',[TeamController::class, 'index'])->name('teams.index');

@@ -45,11 +45,11 @@ class GameController extends Controller
         
         $game->update($data);
 
-        return redirect(route('games.index'))->with('success','Team Updated Succesfully');
+        return redirect(route('games.index'))->with('success','Game Updated Succesfully');
     }
 
     public function delete(Game $game){
         $game->delete();
-        return redirect(route('games.index'))->with('success','Team Deleted Succesfully');
+        return redirect(route('games.index'))->with('success','Game Deleted Succesfully');
     }
 }
