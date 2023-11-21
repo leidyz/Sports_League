@@ -9,6 +9,15 @@ class Game extends Model
 {
     use HasFactory;
 
+    protected $fillable =[
+        'title',
+        'date',
+        'local_team' ,
+        'guest_team',
+        'local_score',
+        'guest_score'
+    ];
+
     //One to Many relationship(inverse)
     public function localTeam(){
         return $this->belongsTo(Team::class,'local_team');
