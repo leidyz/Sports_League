@@ -1,3 +1,4 @@
+@extends('layout.header')
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +11,7 @@
   </head>
 
   <body>
+    @section('content')
     <div>
         @if(session()->has('success'))
         <div class="text-white bg-green-700 hover:bg-green-800 font-medium text-sm dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">  
@@ -87,5 +89,6 @@
       </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+  @stop
   </body>
 </html>
