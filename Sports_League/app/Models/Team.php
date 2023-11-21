@@ -13,5 +13,14 @@ class Team extends Model
         'coach',
         'points'
     ];
+
+    //One to many relationship
+    public function localgame(){
+        return $this->hasMany(Game::class, 'local_team');
+    }
+
+    public function guestgame(){
+        return $this->hasMany(Game::class, 'guest_team');
+    }
      
 }
