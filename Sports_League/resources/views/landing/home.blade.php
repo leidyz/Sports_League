@@ -25,7 +25,7 @@
                 <!-- Button is now below "NBA Basketball Team" and centered vertically -->
                 <button class="relative inline-flex items-center justify-center p-2.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
                     <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        Create New Game
+                    <a href="{{route('teams.create')}}">Create a New Game</a>
                     </span>
                 </button>
             </div>
@@ -38,11 +38,12 @@
                 <!-- Button is now below "NBA Basketball Team" and centered vertically -->
                 <button class="relative inline-flex items-center justify-center p-2.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
                     <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        Create New Team
+                    <a href="{{route('teams.create')}}">Create a New Team</a>
                     </span>
                 </button>
             </div>
         </div>
+
     <!-- Slider controls -->
     <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -61,6 +62,30 @@
         </span>
     </button>
 </div>
+<!-- New section below the carousel -->
+<div class="bg-cover bg-center h-96 flex items-center justify-center">
+    <!-- Adjust the background image, text, and styles as needed -->
+    <div class="text-white text-center">
+        <h2 class="text-3xl font-extrabold mb-4">Match Results</h2>
+        <!-- Example match results, replace with your actual data -->
+        <div class="flex justify-center space-x-4">
+            <div>
+                <p>Team A vs Team B</p>
+                <p>Result: 3-2</p>
+            </div>
+            <div>
+                <p>Team C vs Team D</p>
+                <p>Result: 1-0</p>
+            </div>
+            <div>
+                <p>Team E vs Team F</p>
+                <p>Result: 2-2</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
     @stop
   </body>
