@@ -31,22 +31,22 @@ In level 1 of this project, we have designed and programmed all the functionalit
 Follow these steps to set up the project on your local machine:
 
 Clone the repository:
-*git clone https://github.com/leidyz/Sports_League.git*
+* git clone https://github.com/leidyz/Sports_League.git
 
 Install project dependencies:
-*composer install*
+* composer install 
 
 Copy the .env.example file to .env and configure your database settings:
-*cp .env.example .env*
+* cp .env.example .env
 
 Generate the application key:
-*php artisan key:generate*
+* php artisan key:generate
 
 Run database migrations and seeders:
-*php artisan migrate --seed*
+* php artisan migrate --seed
 
 Start the development server:
-*php artisan serve*
+* php artisan serve
 
 Visit http://localhost:8000 in your browser to access the application.
 
