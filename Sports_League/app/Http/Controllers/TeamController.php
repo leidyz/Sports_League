@@ -17,8 +17,8 @@ class TeamController extends Controller
     }
     public function store(Request $request){
         $data = $request->validate([
-            'name' => 'required',
-            'coach' => 'required',
+            'name' => 'required|unique:teams,name',
+            'coach' => 'required|unique:teams,coach',
             'points' =>'required|numeric|gt:0'
         ]);
 
@@ -32,8 +32,8 @@ class TeamController extends Controller
     }
     public function update(Request $request, Team $team){
         $data = $request->validate([
-            'name' => 'required',
-            'coach' => 'required',
+            'name' => 'required|unique:teams,name',
+            'coach' => 'required|unique:teams,coach',
             'points' =>'required|numeric|gt:0'
         ]);
         
