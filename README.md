@@ -26,7 +26,7 @@ In level 1 of this project, we have designed and programmed all the functionalit
 Follow these steps to set up the project on your local machine:
 
 Clone the repository:
-*git clone https://github.com/your-username/football-league-management.git*
+*git clone https://github.com/leidyz/Sports_League.git*
 
 Install project dependencies:
 *composer install*
