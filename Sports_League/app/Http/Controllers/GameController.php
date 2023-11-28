@@ -21,8 +21,8 @@ class GameController extends Controller
             'date' => 'required',
             'local_team' => 'required',
             'guest_team' => 'required|different:local_team',
-            'local_score' => 'required',
-            'guest_score' => 'required'
+            'local_score' => 'required|numeric|gt:0',
+            'guest_score' => 'required|numeric|gt:0'
         ]);
 
         $newGame = Game::create($data);
@@ -39,8 +39,8 @@ class GameController extends Controller
             'date' => 'required',
             'local_team' => 'required',
             'guest_team' => 'required|different:local_team',
-            'local_score' => 'required',
-            'guest_score' => 'required'
+            'local_score' => 'required|numeric|gt:0',
+            'guest_score' => 'required|numeric|gt:0'
         ]);
         
         $game->update($data);

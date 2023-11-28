@@ -19,7 +19,7 @@ class TeamController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'coach' => 'required',
-            'points' =>'required|numeric'
+            'points' =>'required|numeric|gt:0'
         ]);
 
         $newTeam = Team::create($data);
@@ -34,7 +34,7 @@ class TeamController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'coach' => 'required',
-            'points' =>'required|numeric'
+            'points' =>'required|numeric|gt:0'
         ]);
         
         $team->update($data);
