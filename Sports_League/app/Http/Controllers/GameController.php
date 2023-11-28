@@ -12,6 +12,11 @@ class GameController extends Controller
         return view('games.index',['games' => $games]);
     }
 
+    public function home(){
+        $games = Game::all();
+        return view('games.home',['games' => $games]);
+    }
+
     public function create(){
         return view('games.create');
     }
