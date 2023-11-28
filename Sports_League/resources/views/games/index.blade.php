@@ -1,3 +1,4 @@
+@extends('layout.header')
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +11,7 @@
   </head>
 
   <body>
+    @section('content')
     <div>
         @if(session()->has('success'))
         <div class="text-white bg-green-700 hover:bg-green-800 font-medium text-sm dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">  
@@ -18,9 +20,6 @@
         @endif
       </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <div>
-        <a href="{{route('teams.create')}}">Create a new Game</a>
-        </div>
       <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -87,5 +86,6 @@
       </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+  @stop
   </body>
 </html>

@@ -12,6 +12,11 @@ class GameController extends Controller
         return view('games.index',['games' => $games]);
     }
 
+    public function home(){
+        $games = Game::all();
+        return view('games.home',['games' => $games]);
+    }
+
     public function create(){
         return view('games.create');
     }
@@ -21,8 +26,8 @@ class GameController extends Controller
             'date' => 'required',
             'local_team' => 'required',
             'guest_team' => 'required|different:local_team',
-            'local_score' => 'required',
-            'guest_score' => 'required'
+            'local_score' => 'required|numeric|gt:0',
+            'guest_score' => 'required|numeric|gt:0'
         ]);
 
         $newGame = Game::create($data);
@@ -39,17 +44,17 @@ class GameController extends Controller
             'date' => 'required',
             'local_team' => 'required',
             'guest_team' => 'required|different:local_team',
-            'local_score' => 'required',
-            'guest_score' => 'required'
+            'local_score' => 'required|numeric|gt:0',
+            'guest_score' => 'required|numeric|gt:0'
         ]);
         
         $game->update($data);
 
-        return redirect(route('games.index'))->with('success','Team Updated Succesfully');
+        return redirect(route('games.index'))->with('success','Game Updated Succesfully');
     }
 
     public function delete(Game $game){
         $game->delete();
-        return redirect(route('games.index'))->with('success','Team Deleted Succesfully');
+        return redirect(route('games.index'))->with('success','Game Deleted Succesfully');
     }
 }
