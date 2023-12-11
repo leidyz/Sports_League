@@ -33,15 +33,7 @@
                     </div>
                     <div class="sm:col-span-2">
                         <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
-                        <input type="date" name="date" id="date" value="{{$game->date}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
-                    </div>
-                    <div class="sm:col-span-2">
-                        <label for="local_team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Local Team</label>
-                        <input type="text" name="local_team" id="local_team" value="{{$game->local_team}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type local team id" required="">
-                    </div>
-                    <div class="sm:col-span-2">
-                        <label for="guest_team" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Guest Team</label>
-                        <input type="text" name="guest_team" id="guest_team" value="{{$game->guest_team}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type guest team id" required="">
+                        <input type="date" name="date" id="date" value="{{ date('Y-m-d', strtotime($game->date)) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
                     </div>
                     <div class="sm:col-span-2">
                         <label for="local_score" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Local Score</label>
