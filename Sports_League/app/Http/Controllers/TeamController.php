@@ -32,8 +32,8 @@ class TeamController extends Controller
     }
     public function update(Request $request, Team $team){
         $data = $request->validate([
-            'name' => 'required|unique:teams,name',
-            'coach' => 'required|unique:teams,coach',
+            'name' => 'required',
+            'coach' => 'required',
             'points' =>'required|numeric|gt:0'
         ]);
         

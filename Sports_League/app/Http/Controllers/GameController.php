@@ -42,8 +42,6 @@ class GameController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'date' => 'required',
-            'local_team' => 'required',
-            'guest_team' => 'required|different:local_team',
             'local_score' => 'required|numeric|gt:0',
             'guest_score' => 'required|numeric|gt:0'
         ]);
