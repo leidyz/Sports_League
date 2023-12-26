@@ -38,12 +38,15 @@ class GameController extends Controller
     }
 
     public function edit(Game $game){
-        return view('games.edit',['game' => $game]);
+        $teams = Team::all(); 
+        return view('games.edit',['game' => $game, 'teams' => $teams]);
     }
     public function update(Request $request, Game $game){
         $data = $request->validate([
             'title' => 'required',
             'date' => 'required',
+            'local_team' => 'required',
+            'guest_team' => 'required|different:local_team',
             'local_score' => 'required|numeric|gt:0',
             'guest_score' => 'required|numeric|gt:0'
         ]);
