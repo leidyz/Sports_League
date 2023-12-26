@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\Team;
 
 class GameController extends Controller
 {
@@ -18,7 +19,8 @@ class GameController extends Controller
     }
 
     public function create(){
-        return view('games.create');
+        $teams = Team::all(); 
+        return view('games.create', ['teams' => $teams]);
     }
     public function store(Request $request){
         $data = $request->validate([
