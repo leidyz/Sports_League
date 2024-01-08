@@ -8,6 +8,9 @@ use App\Models\Team;
 
 class GameController extends Controller
 {
+    public $guestTeam;
+    public $localTeam;
+
     public function index(){
         $games = Game::all();
         return view('games.index',['games' => $games]);
@@ -39,7 +42,15 @@ class GameController extends Controller
 
     public function edit(Game $game){
         $teams = Team::all(); 
-        return view('games.edit',['game' => $game, 'teams' => $teams]);
+        $this->getLocalTeam($game);
+        $this->getGuestTeam($game);
+        return view('games.edit',[
+            'game' => $game, 
+            'teams' => $teams,
+            'localTeam' => $this->localTeam,
+            'guestTeam' => $this->guestTeam,
+
+        ]);
     }
     public function update(Request $request, Game $game){
         $data = $request->validate([
@@ -59,5 +70,19 @@ class GameController extends Controller
     public function delete(Game $game){
         $game->delete();
         return redirect(route('games.index'))->with('success','Game Deleted Succesfully');
+    }
+
+    public function getLocalTeam(Game $game){
+        if ($game->local_team) {
+            $localTeam = Team::find($game->local_team);
+            $this->localTeam = $localTeam ? $localTeam->name : null;
+        }
+    }
+
+    public function getGuestTeam(Game $game){
+        if($game->guest_team){
+            $guestTeam = Team::find($game->guest_team);
+            $this->guestTeam = $guestTeam ? $guestTeam->name :null;
+        }
     }
 }
