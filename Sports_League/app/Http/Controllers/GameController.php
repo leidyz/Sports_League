@@ -23,7 +23,12 @@ class GameController extends Controller
 
     public function home(){
         $games = Game::all();
-        return view('games.home',['games' => $games]);
+        $teams = Team::all(); 
+        return view('games.home',[
+            'games' => $games,
+            'teams' => $teams,
+            'controller' => $this,
+        ]);
     }
 
     public function create(){

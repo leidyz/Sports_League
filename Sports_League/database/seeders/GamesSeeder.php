@@ -14,21 +14,21 @@ class GamesSeeder extends Seeder
     public function run(): void
     {
         DB::table('games')->insert([
-            ['title'=> 'Los Angeles Lakers vs Boston Celtics',
+            ['title'=> ' QUARTERFINALS ',
             'date'=> '2023-11-17 00:00:00',
             'local_team'=> '1',
             'guest_team'=> '2',
             'local_score'=> '94',
             'guest_score'=> '138'],
 
-            ['title'=> 'Golden State Warriors vs Chicago Bulls',
+            ['title'=> '  SEMIFINALS  ',
             'date'=> '2023-11-19 00:00:00',
             'local_team'=> '3',
             'guest_team'=> '4',
             'local_score'=> '113',
             'guest_score'=> '104'],
 
-            ['title'=> 'San Antonio Spurs vs Miami Heat',
+            ['title'=> ' CHAMPIONSHIP  ',
             'date'=> '2023-11-20 00:00:00',
             'local_team'=> '5',
             'guest_team'=> '6',
