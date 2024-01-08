@@ -13,7 +13,12 @@ class GameController extends Controller
 
     public function index(){
         $games = Game::all();
-        return view('games.index',['games' => $games]);
+        $teams = Team::all(); 
+        return view('games.index',[
+            'games' => $games,
+            'teams' => $teams,
+            'controller' => $this,
+    ]);
     }
 
     public function home(){
@@ -76,13 +81,16 @@ class GameController extends Controller
         if ($game->local_team) {
             $localTeam = Team::find($game->local_team);
             $this->localTeam = $localTeam ? $localTeam->name : null;
+            return $localTeam ? $localTeam->name : null;
+            
         }
     }
 
     public function getGuestTeam(Game $game){
         if($game->guest_team){
             $guestTeam = Team::find($game->guest_team);
-            $this->guestTeam = $guestTeam ? $guestTeam->name :null;
+            $this->guestTeam = $guestTeam ? $guestTeam->name : null;
+            return $guestTeam ? $guestTeam->name :null;
         }
     }
 }

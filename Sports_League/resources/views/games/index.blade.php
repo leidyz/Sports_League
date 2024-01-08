@@ -25,8 +25,8 @@
           <tr>
             <th scope="col" class="px-6 py-3">Title</th>
             <th scope="col" class="px-6 py-3">Date</th>
-            <th scope="col" class="px-6 py-3">Local Team ID</th>
-            <th scope="col" class="px-6 py-3">Guest Team ID</th>
+            <th scope="col" class="px-6 py-3">Local Team</th>
+            <th scope="col" class="px-6 py-3">Guest Team</th>
             <th scope="col" class="px-6 py-3">Local Score</th>
             <th scope="col" class="px-6 py-3">Guest Score</th>
             <th scope="col" class="px-6 py-3"></th>
@@ -38,8 +38,8 @@
           <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
             <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$game->title}}</td>
             <td class="px-6 py-4">{{$game->date}}</td>
-            <td class="px-6 py-4">{{$game->local_team}}</td>
-            <td class="px-6 py-4">{{$game->guest_team}}</td>
+            <td class="px-6 py-4">{{$controller->getLocalTeam($game)}}</td>
+            <td class="px-6 py-4">{{$controller->getGuestTeam($game)}}</td>
             <td class="px-6 py-4">{{$game->local_score}}</td>
             <td class="px-6 py-4">{{$game->guest_score}}</td>
             <td class="px-6 py-4">
